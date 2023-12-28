@@ -3,6 +3,11 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Collaborator;
+use App\Models\EmployeePosition;
+use App\Models\Position;
+use App\Models\Unit;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,11 +17,32 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        Unit::factory()
+            ->count(100)
+            ->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Collaborator::factory()
+            ->count(100)
+            ->create();
+
+        Position::factory()
+            ->count(10)
+            ->sequence(
+                ['position' => 'Product Owner'],
+                ['position' => 'Scrum Master'],
+                ['position' => 'TecLead'],
+                ['position' => 'Dev FullStack'],
+                ['position' => 'Dev Front-End'],
+                ['position' => 'Dev Back-End'],
+                ['position' => 'Devops Engineer'],
+                ['position' => 'Analista Senior'],
+                ['position' => 'Product Manager'],
+                ['position' => 'Scrum Master Senior'],
+            )
+            ->create();
+
+        EmployeePosition::factory()
+            ->count(100)
+            ->create();
     }
 }
