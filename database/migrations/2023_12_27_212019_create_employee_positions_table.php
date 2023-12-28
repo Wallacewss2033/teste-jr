@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('collaborator_id')->constrained('collaborators');
             $table->integer('performance_note')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
