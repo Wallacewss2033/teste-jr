@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('social_reason');
             $table->string('cnpj')->unique();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

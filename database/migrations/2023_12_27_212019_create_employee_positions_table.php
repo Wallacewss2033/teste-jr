@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('employee_positions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('job_id')->constrained('positions');
+            $table->foreignId('positions_id')->constrained('positions');
             $table->foreignId('collaborator_id')->constrained('collaborators');
             $table->integer('performance_note')->nullable();
             $table->timestamps();
